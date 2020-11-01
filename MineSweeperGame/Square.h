@@ -11,7 +11,7 @@ public:
 		Blank = 0, One, Two, Three, Four, Five, Six, Seven, Eight
 	};
 	// Used as array indices for the neighbours array
-	enum class Neighbours {
+	enum Neighbours: int {
 		TopLeft,
 		TopCenter,
 		TopRight,

@@ -41,8 +41,8 @@ private:
 public: 
 	void PrintBoard(bool showall = false);
 	GameState ViewSquare(Square *square);
-	GameState ViewSquareByCoords(int x, int y);
-
+	GameState ViewSquare(int x, int y);
+	GameState GetCurrentGameState();
 };
 #endif // !MINESWEEPERGAME_H
 

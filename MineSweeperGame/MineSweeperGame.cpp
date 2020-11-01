@@ -139,7 +139,7 @@ void MineSweeperGame::PrintBoard(bool showAll) {
 		for (int x = 0; x < gameX; x++) {
 			Square *square = gameBoard[x*gameX + y];
 			Square::Value val = square->GetValue();
-			if (showAll && square->GetTrueValue() == Square::Value::Bomb) {
+			if (showAll || square->IsViewed() && square->GetTrueValue() == Square::Value::Bomb) {
 				printf("B ");
 			}
 			else if (showAll || square->IsViewed()) {
@@ -170,7 +170,8 @@ MineSweeperGame::GameState MineSweeperGame::CheckBoardStatus() {
 			&& gameBoard[i]->GetTrueValue() == Square::Value::Bomb) {
 			bombsHit++;
 		}
-		else if (!gameBoard[i]->IsViewed()) {
+		else if (!gameBoard[i]->IsViewed() 
+			&& gameBoard[i]->GetTrueValue() != Square::Value::Bomb) {
 			allSquaresViewed = false;
 		}
 	}
@@ -201,8 +202,12 @@ MineSweeperGame::GameState MineSweeperGame::ViewSquare(Square *square) {
 	return CheckBoardStatus();
 }
 
-MineSweeperGame::GameState MineSweeperGame::ViewSquareByCoords(int x, int y) {
+MineSweeperGame::GameState MineSweeperGame::ViewSquare(int x, int y) {
 	ViewSquare(gameBoard[x*gameX + y]);
 
+	return CheckBoardStatus();
+}
+
+MineSweeperGame::GameState MineSweeperGame::GetCurrentGameState() {
 	return CheckBoardStatus();
 }
