@@ -3,10 +3,8 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-# Add source to this project's executable.
+file( GLOB LIB_SOURCES *.cpp )
+file( GLOB LIB_HEADERS *.h )
 
-add_executable (MineSweeperSolver "MineSweeperSolver.cpp" "MineSweeperSolver.h")
+add_library ( MineSweeperSolverLib ${LIB_SOURCES} ${LIB_HEADERS} )
 
-# TODO: Add tests and install targets if needed.
-
-target_link_libraries (MineSweeperSolver PRIVATE MineSweeperGameLib)

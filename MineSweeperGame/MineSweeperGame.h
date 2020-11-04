@@ -40,9 +40,12 @@ private:
 	GameState CheckBoardStatus();
 public: 
 	void PrintBoard(bool showall = false);
+	int GetGameX();
+	int GetGameY();
 	GameState ViewSquare(Square *square);
 	GameState ViewSquare(int x, int y);
 	GameState GetCurrentGameState();
+	Square **GetGameBoard();
 };
 #endif // !MINESWEEPERGAME_H
 

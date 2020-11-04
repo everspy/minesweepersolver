@@ -6,6 +6,7 @@ cmake_minimum_required (VERSION 3.8)
 project ("MineSweeperSolver")
 
 # Include sub-projects.
+add_subdirectory ("MineSweeperInterpreter")
 add_subdirectory ("MineSweeperSolver")
 add_subdirectory ("MineSweeperGame")
 

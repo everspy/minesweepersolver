@@ -211,3 +211,15 @@ MineSweeperGame::GameState MineSweeperGame::ViewSquare(int x, int y) {
 MineSweeperGame::GameState MineSweeperGame::GetCurrentGameState() {
 	return CheckBoardStatus();
 }
+
+int MineSweeperGame::GetGameX() {
+	return gameX;
+}
+
+int MineSweeperGame::GetGameY() {
+	return gameY;
+}
+
+Square **MineSweeperGame::GetGameBoard() {
+	return gameBoard;
+}
